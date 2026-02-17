@@ -1,0 +1,198 @@
+vision-based-edge-occupancy:
+    heading: "Vision-Based Edge Occupancy Detection"
+    summary: "A graduation project replacing laser scanners with computer vision for parking system safety."
+    date: "04/01/2026"
+    complexity: 9
+    duration: "long"
+    tags:
+        - "Computer Vision"
+        - "Deep Learning"
+        - "MobileNetV3"
+        - "Edge AI"
+        - "Blender"
+        - "Raspberry Pi"
+
+commitly:
+    heading: "Commitly – Gamified Habit Tracker"
+    summary: "A cross-platform mobile app combining gamification and social accountability for habit building."
+    date: "05/01/2026"
+    complexity: 6
+    duration: "medium"
+    tags:
+        - "Flutter"
+        - "Dart"
+        - "Firebase"
+        - "Mobile Development"
+        - "Testing"
+
+cs412-project:
+    heading: "Instagram Analytics with Machine Learning"
+    summary: "A machine learning project for Instagram account classification and engagement prediction."
+    date: "14/01/2025"
+    complexity: 7
+    duration: "medium"
+    tags:
+        - "Machine Learning"
+        - "NLP"
+        - "Classification"
+        - "Python"
+        - "Data Science"
+
+kimiko:
+    heading: "Kimiko – Browser Extension Chat Platform"
+    summary: "A Chrome extension enabling real-time chat on any website through URL-based chat rooms."
+    date: "15/12/2021"
+    complexity: 7
+    duration: "long"
+    tags:
+        - "Chrome Extension"
+        - "React"
+        - "TypeScript"
+        - "Node.js"
+        - "WebSocket"
+        - "MongoDB"
+
+email-automation:
+    heading: "Email PDF Extraction Automation"
+    summary: "Automated processing of 20,000 weekly emails with password-protected ZIP extraction."
+    date: "09/05/2020"
+    complexity: 7
+    duration: "medium"
+    tags:
+        - "Python"
+        - "Email Automation"
+        - "Gmail API"
+        - "Scalability"
+        - "Data Processing"
+
+color-recommendation-app:
+    heading: "Color-Based Product Recommendation App"
+    summary: "An Android app that extracts colors from images and recommends matching nail products."
+    date: "13/09/2018"
+    complexity: 6
+    duration: "medium"
+    tags:
+        - "Android"
+        - "Java"
+        - "Computer Vision"
+        - "Color Theory"
+        - "Mobile Development"
+
+mtg-arena-monitor:
+    heading: "MTG Arena Log Monitor"
+    summary: "A desktop app to monitor and parse Magic: The Gathering Arena log files in real time."
+    date: "01/03/2021"
+    complexity: 5
+    duration: "short"
+    tags:
+        - "Python"
+        - "Tkinter"
+        - "Log Parsing"
+        - "Desktop App"
+        - "Gaming"
+
+premiere-csv-markers:
+    heading: "Premiere CSV Marker Importer"
+    summary: "A tool to import CSV files as markers into Adobe Premiere Pro with customizable colors."
+    date: "10/05/2021"
+    complexity: 4
+    duration: "short"
+    tags:
+        - "Adobe Premiere Pro"
+        - "ExtendScript"
+        - "CSV"
+        - "Video Editing"
+        - "Automation"
+
+image-metadata-translator:
+    heading: "Image Metadata Translator"
+    summary: "A Python script to translate image EXIF/IPTC metadata using DeepL API."
+    date: "05/05/2021"
+    complexity: 4
+    duration: "short"
+    tags:
+        - "Python"
+        - "DeepL API"
+        - "EXIF"
+        - "IPTC"
+        - "Automation"
+
+anydictate:
+    heading: "AnyDictate"
+    summary: "A real-time speech-to-text web application using Web Speech API and Python."
+    date: "11/11/2022"
+    complexity: 5
+    duration: "short"
+    tags:
+        - "Python"
+        - "Web Speech API"
+        - "JavaScript"
+        - "Accessibility"
+        - "Automation"
+
+astrophysics-website:
+    heading: "Astrophysics Data Platform"
+    summary: "Enhanced an academic website for astrophysicists with automated data transfer and modern UI."
+    date: "07/10/2022"
+    complexity: 6
+    duration: "long"
+    tags:
+        - "Python"
+        - "PHP"
+        - "SQL"
+        - "Bash"
+        - "Material UI"
+        - "NASA"
+
+rhino-matlab-bridge:
+    heading: "Rhino-MATLAB Bridge"
+    summary: "Bridging Rhino with Grasshopper and MATLAB for academic research using Python."
+    date: "22/02/2022"
+    complexity: 8
+    duration: "long"
+    tags:
+        - "Python"
+        - "Flask"
+        - "MATLAB"
+        - "Rhino"
+        - "Grasshopper"
+        - "Networking"
+
+info-screen:
+    heading: "Raspberry Pi Information Display"
+    summary: "A responsive information display system with RTSP streaming and multi-source data integration."
+    date: "05/09/2023"
+    complexity: 7
+    duration: "long"
+    tags:
+        - "Raspberry Pi"
+        - "Python"
+        - "Flask"
+        - "jQuery"
+        - "RTSP"
+        - "ffmpeg"
+
+linux-call-recorder:
+    heading: "Linux Phone Call Recorder"
+    summary: "An automatic call recording daemon for Linux phones using ModemManager and PulseAudio."
+    date: "06/10/2023"
+    complexity: 6
+    duration: "medium"
+    tags:
+        - "Linux"
+        - "Python"
+        - "D-Bus"
+        - "PulseAudio"
+        - "GStreamer"
+        - "ModemManager"
+
+yearbook-website:
+    heading: "Yearbook Website"
+    summary: "My first ever fully function website that had a real world impact."
+    date: "01/12/2015"
+    complexity: 3
+    duration: "medium"
+    tags:
+        - "PHP"
+        - "Apache"
+        - "Web Development"

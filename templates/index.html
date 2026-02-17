@@ -1,0 +1,45 @@
+<h1>Welcome to my website.</h1>
+
+<p>
+    They call me Tuğrul.
+    <sub><i>means a myhtical bird of prey</i></sub>
+    <br /><audio controls src="static/media/tugrul.mp3" style="vertical-align: middle"></audio><br />
+</p>
+
+<p>
+    I'm a computer engineering and science graduate.<br />
+    I've found myself interested in cognition (its existence, and realizability through computation) and flying things.
+</p>
+
+<div style="display: flex; justify-content: center; flex-wrap: wrap; align-items: center; gap: 1rem;">
+    <a href="mailto:tagrikli@proton.me">Email</a>
+    <span>•</span>
+    <a href="https://github.com/Tagrikli">GitHub</a>
+    <span>•</span>
+    <a href="https://open.spotify.com/user/tagrikli">Spotify</a>
+    <span>•</span>
+    <a href="https://letterboxd.com/tagrikli/">Letterboxd</a>
+</div>
+
+<div class="video-card">
+    <h3>I'm inviting you to enjoy this masterpiece</h3>
+    <div class="video-container">
+        <iframe
+            src="https://www.youtube.com/embed/pLjHU7zj1aQ?si=uOn4ZA6mRyeYfTHs"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+        ></iframe>
+    </div>
+</div>
+
+<script>
+    function calculateAge(birthYear) {
+        const currentYear = new Date().getFullYear();
+        return currentYear - birthYear;
+    }
+
+    document.getElementById("age").textContent = calculateAge(1998);
+</script>

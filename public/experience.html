@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="/static/css/base.css" />
+
+        <!-- KaTeX for LaTeX math rendering -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+            onload="
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false },
+                    ],
+                })
+            "
+        ></script>
+
+        <!-- Highlight.js for code syntax highlighting -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/rose-pine.min.css"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+        <script>
+            hljs.highlightAll();
+        </script>
+
+        <!-- Starry background effect 
+        <script type="module" src="/static/js/stars.js"></script>
+         -->
+    </head>
+    <body>
+        <nav class="main-nav">
+            <h3><a href="/">Home</a></h3>
+            <h3><a href="/thought.html">Thoughts</a></h3>
+            <h3><a href="/experience.html">Experiences</a></h3>
+            <h3><a href="/music.html">Music</a></h3>
+        </nav>
+        <div class="page">
+            <div class="content"><h1>Experiences</h1>
+<p class="ai-disclosure"><sub>Some sections were organized with the help of AI to improve clarity and structure. The experiences and facts described are entirely my own.</sub></p>
+
+<div class="filter-controls">
+    <div class="filter-group">
+        <label>Sort by:</label>
+        <select id="sort-select" onchange="filterAndSort()">
+            <option value="complexity-desc">Complexity (High to Low)</option>
+            <option value="complexity-asc">Complexity (Low to High)</option>
+            <option value="date-desc">Date (Newest)</option>
+            <option value="date-asc">Date (Oldest)</option>
+            <option value="duration-desc">Duration (Long to Short)</option>
+            <option value="duration-asc">Duration (Short to Long)</option>
+        </select>
+    </div>
+    <div class="filter-group">
+        <div class="tag-filter-header collapsed" onclick="toggleTagFilters()">
+            <label>Filter by tag:</label>
+            <span class="tag-filter-toggle-icon">▼</span>
+        </div>
+        <div class="tag-filters collapsed" id="tag-filters">
+            <button class="tag-filter active" data-tag="all" onclick="setTagFilter('all')">All</button>
+            
+            <button class="tag-filter" data-tag="Accessibility" onclick="setTagFilter('Accessibility')">Accessibility</button>
+            
+            <button class="tag-filter" data-tag="Adobe Premiere Pro" onclick="setTagFilter('Adobe Premiere Pro')">Adobe Premiere Pro</button>
+            
+            <button class="tag-filter" data-tag="Android" onclick="setTagFilter('Android')">Android</button>
+            
+            <button class="tag-filter" data-tag="Apache" onclick="setTagFilter('Apache')">Apache</button>
+            
+            <button class="tag-filter" data-tag="Automation" onclick="setTagFilter('Automation')">Automation</button>
+            
+            <button class="tag-filter" data-tag="Bash" onclick="setTagFilter('Bash')">Bash</button>
+            
+            <button class="tag-filter" data-tag="Blender" onclick="setTagFilter('Blender')">Blender</button>
+            
+            <button class="tag-filter" data-tag="CSV" onclick="setTagFilter('CSV')">CSV</button>
+            
+            <button class="tag-filter" data-tag="Chrome Extension" onclick="setTagFilter('Chrome Extension')">Chrome Extension</button>
+            
+            <button class="tag-filter" data-tag="Classification" onclick="setTagFilter('Classification')">Classification</button>
+            
+            <button class="tag-filter" data-tag="Color Theory" onclick="setTagFilter('Color Theory')">Color Theory</button>
+            
+            <button class="tag-filter" data-tag="Computer Vision" onclick="setTagFilter('Computer Vision')">Computer Vision</button>
+            
+            <button class="tag-filter" data-tag="D-Bus" onclick="setTagFilter('D-Bus')">D-Bus</button>
+            
+            <button class="tag-filter" data-tag="Dart" onclick="setTagFilter('Dart')">Dart</button>
+            
+            <button class="tag-filter" data-tag="Data Processing" onclick="setTagFilter('Data Processing')">Data Processing</button>
+            
+            <button class="tag-filter" data-tag="Data Science" onclick="setTagFilter('Data Science')">Data Science</button>
+            
+            <button class="tag-filter" data-tag="Deep Learning" onclick="setTagFilter('Deep Learning')">Deep Learning</button>
+            
+            <button class="tag-filter" data-tag="DeepL API" onclick="setTagFilter('DeepL API')">DeepL API</button>
+            
+            <button class="tag-filter" data-tag="Desktop App" onclick="setTagFilter('Desktop App')">Desktop App</button>
+            
+            <button class="tag-filter" data-tag="EXIF" onclick="setTagFilter('EXIF')">EXIF</button>
+            
+            <button class="tag-filter" data-tag="Edge AI" onclick="setTagFilter('Edge AI')">Edge AI</button>
+            
+            <button class="tag-filter" data-tag="Email Automation" onclick="setTagFilter('Email Automation')">Email Automation</button>
+            
+            <button class="tag-filter" data-tag="ExtendScript" onclick="setTagFilter('ExtendScript')">ExtendScript</button>
+            
+            <button class="tag-filter" data-tag="Firebase" onclick="setTagFilter('Firebase')">Firebase</button>
+            
+            <button class="tag-filter" data-tag="Flask" onclick="setTagFilter('Flask')">Flask</button>
+            
+            <button class="tag-filter" data-tag="Flutter" onclick="setTagFilter('Flutter')">Flutter</button>
+            
+            <button class="tag-filter" data-tag="GStreamer" onclick="setTagFilter('GStreamer')">GStreamer</button>
+            
+            <button class="tag-filter" data-tag="Gaming" onclick="setTagFilter('Gaming')">Gaming</button>
+            
+            <button class="tag-filter" data-tag="Gmail API" onclick="setTagFilter('Gmail API')">Gmail API</button>
+            
+            <button class="tag-filter" data-tag="Grasshopper" onclick="setTagFilter('Grasshopper')">Grasshopper</button>
+            
+            <button class="tag-filter" data-tag="IPTC" onclick="setTagFilter('IPTC')">IPTC</button>
+            
+            <button class="tag-filter" data-tag="Java" onclick="setTagFilter('Java')">Java</button>
+            
+            <button class="tag-filter" data-tag="JavaScript" onclick="setTagFilter('JavaScript')">JavaScript</button>
+            
+            <button class="tag-filter" data-tag="Linux" onclick="setTagFilter('Linux')">Linux</button>
+            
+            <button class="tag-filter" data-tag="Log Parsing" onclick="setTagFilter('Log Parsing')">Log Parsing</button>
+            
+            <button class="tag-filter" data-tag="MATLAB" onclick="setTagFilter('MATLAB')">MATLAB</button>
+            
+            <button class="tag-filter" data-tag="Machine Learning" onclick="setTagFilter('Machine Learning')">Machine Learning</button>
+            
+            <button class="tag-filter" data-tag="Material UI" onclick="setTagFilter('Material UI')">Material UI</button>
+            
+            <button class="tag-filter" data-tag="Mobile Development" onclick="setTagFilter('Mobile Development')">Mobile Development</button>
+            
+            <button class="tag-filter" data-tag="MobileNetV3" onclick="setTagFilter('MobileNetV3')">MobileNetV3</button>
+            
+            <button class="tag-filter" data-tag="ModemManager" onclick="setTagFilter('ModemManager')">ModemManager</button>
+            
+            <button class="tag-filter" data-tag="MongoDB" onclick="setTagFilter('MongoDB')">MongoDB</button>
+            
+            <button class="tag-filter" data-tag="NASA" onclick="setTagFilter('NASA')">NASA</button>
+            
+            <button class="tag-filter" data-tag="NLP" onclick="setTagFilter('NLP')">NLP</button>
+            
+            <button class="tag-filter" data-tag="Networking" onclick="setTagFilter('Networking')">Networking</button>
+            
+            <button class="tag-filter" data-tag="Node.js" onclick="setTagFilter('Node.js')">Node.js</button>
+            
+            <button class="tag-filter" data-tag="PHP" onclick="setTagFilter('PHP')">PHP</button>
+            
+            <button class="tag-filter" data-tag="PulseAudio" onclick="setTagFilter('PulseAudio')">PulseAudio</button>
+            
+            <button class="tag-filter" data-tag="Python" onclick="setTagFilter('Python')">Python</button>
+            
+            <button class="tag-filter" data-tag="RTSP" onclick="setTagFilter('RTSP')">RTSP</button>
+            
+            <button class="tag-filter" data-tag="Raspberry Pi" onclick="setTagFilter('Raspberry Pi')">Raspberry Pi</button>
+            
+            <button class="tag-filter" data-tag="React" onclick="setTagFilter('React')">React</button>
+            
+            <button class="tag-filter" data-tag="Rhino" onclick="setTagFilter('Rhino')">Rhino</button>
+            
+            <button class="tag-filter" data-tag="SQL" onclick="setTagFilter('SQL')">SQL</button>
+            
+            <button class="tag-filter" data-tag="Scalability" onclick="setTagFilter('Scalability')">Scalability</button>
+            
+            <button class="tag-filter" data-tag="Testing" onclick="setTagFilter('Testing')">Testing</button>
+            
+            <button class="tag-filter" data-tag="Tkinter" onclick="setTagFilter('Tkinter')">Tkinter</button>
+            
+            <button class="tag-filter" data-tag="TypeScript" onclick="setTagFilter('TypeScript')">TypeScript</button>
+            
+            <button class="tag-filter" data-tag="Video Editing" onclick="setTagFilter('Video Editing')">Video Editing</button>
+            
+            <button class="tag-filter" data-tag="Web Development" onclick="setTagFilter('Web Development')">Web Development</button>
+            
+            <button class="tag-filter" data-tag="Web Speech API" onclick="setTagFilter('Web Speech API')">Web Speech API</button>
+            
+            <button class="tag-filter" data-tag="WebSocket" onclick="setTagFilter('WebSocket')">WebSocket</button>
+            
+            <button class="tag-filter" data-tag="ffmpeg" onclick="setTagFilter('ffmpeg')">ffmpeg</button>
+            
+            <button class="tag-filter" data-tag="jQuery" onclick="setTagFilter('jQuery')">jQuery</button>
+            
+        </div>
+    </div>
+</div>
+
+<div id="entries-container">
+
+<div class="entry-block" data-complexity="9" data-duration="long" data-tags="Computer Vision,Deep Learning,MobileNetV3,Edge AI,Blender,Raspberry Pi" data-date="04/01/2026">
+    <span class="entry-heading"><a href="content/experience/vision-based-edge-occupancy.html">Vision-Based Edge Occupancy Detection</a></span>
+    <span class="entry-summary">A graduation project replacing laser scanners with computer vision for parking system safety.</span>
+    <div class="entry-meta">
+        <span class="entry-date">04/01/2026</span>
+        
+        <div class="complexity-bar" title="Complexity: 9/10">
+            <div class="complexity-fill" style="width: 90%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-long">long</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Computer Vision</span>
+        
+        <span class="tag">Deep Learning</span>
+        
+        <span class="tag">MobileNetV3</span>
+        
+        <span class="tag">Edge AI</span>
+        
+        <span class="tag">Blender</span>
+        
+        <span class="tag">Raspberry Pi</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="6" data-duration="medium" data-tags="Flutter,Dart,Firebase,Mobile Development,Testing" data-date="05/01/2026">
+    <span class="entry-heading"><a href="content/experience/commitly.html">Commitly – Gamified Habit Tracker</a></span>
+    <span class="entry-summary">A cross-platform mobile app combining gamification and social accountability for habit building.</span>
+    <div class="entry-meta">
+        <span class="entry-date">05/01/2026</span>
+        
+        <div class="complexity-bar" title="Complexity: 6/10">
+            <div class="complexity-fill" style="width: 60%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-medium">medium</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Flutter</span>
+        
+        <span class="tag">Dart</span>
+        
+        <span class="tag">Firebase</span>
+        
+        <span class="tag">Mobile Development</span>
+        
+        <span class="tag">Testing</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="7" data-duration="medium" data-tags="Machine Learning,NLP,Classification,Python,Data Science" data-date="14/01/2025">
+    <span class="entry-heading"><a href="content/experience/cs412-project.html">Instagram Analytics with Machine Learning</a></span>
+    <span class="entry-summary">A machine learning project for Instagram account classification and engagement prediction.</span>
+    <div class="entry-meta">
+        <span class="entry-date">14/01/2025</span>
+        
+        <div class="complexity-bar" title="Complexity: 7/10">
+            <div class="complexity-fill" style="width: 70%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-medium">medium</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Machine Learning</span>
+        
+        <span class="tag">NLP</span>
+        
+        <span class="tag">Classification</span>
+        
+        <span class="tag">Python</span>
+        
+        <span class="tag">Data Science</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="7" data-duration="long" data-tags="Chrome Extension,React,TypeScript,Node.js,WebSocket,MongoDB" data-date="15/12/2021">
+    <span class="entry-heading"><a href="content/experience/kimiko.html">Kimiko – Browser Extension Chat Platform</a></span>
+    <span class="entry-summary">A Chrome extension enabling real-time chat on any website through URL-based chat rooms.</span>
+    <div class="entry-meta">
+        <span class="entry-date">15/12/2021</span>
+        
+        <div class="complexity-bar" title="Complexity: 7/10">
+            <div class="complexity-fill" style="width: 70%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-long">long</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Chrome Extension</span>
+        
+        <span class="tag">React</span>
+        
+        <span class="tag">TypeScript</span>
+        
+        <span class="tag">Node.js</span>
+        
+        <span class="tag">WebSocket</span>
+        
+        <span class="tag">MongoDB</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="7" data-duration="medium" data-tags="Python,Email Automation,Gmail API,Scalability,Data Processing" data-date="09/05/2020">
+    <span class="entry-heading"><a href="content/experience/email-automation.html">Email PDF Extraction Automation</a></span>
+    <span class="entry-summary">Automated processing of 20,000 weekly emails with password-protected ZIP extraction.</span>
+    <div class="entry-meta">
+        <span class="entry-date">09/05/2020</span>
+        
+        <div class="complexity-bar" title="Complexity: 7/10">
+            <div class="complexity-fill" style="width: 70%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-medium">medium</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Python</span>
+        
+        <span class="tag">Email Automation</span>
+        
+        <span class="tag">Gmail API</span>
+        
+        <span class="tag">Scalability</span>
+        
+        <span class="tag">Data Processing</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="6" data-duration="medium" data-tags="Android,Java,Computer Vision,Color Theory,Mobile Development" data-date="13/09/2018">
+    <span class="entry-heading"><a href="content/experience/color-recommendation-app.html">Color-Based Product Recommendation App</a></span>
+    <span class="entry-summary">An Android app that extracts colors from images and recommends matching nail products.</span>
+    <div class="entry-meta">
+        <span class="entry-date">13/09/2018</span>
+        
+        <div class="complexity-bar" title="Complexity: 6/10">
+            <div class="complexity-fill" style="width: 60%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-medium">medium</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Android</span>
+        
+        <span class="tag">Java</span>
+        
+        <span class="tag">Computer Vision</span>
+        
+        <span class="tag">Color Theory</span>
+        
+        <span class="tag">Mobile Development</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="5" data-duration="short" data-tags="Python,Tkinter,Log Parsing,Desktop App,Gaming" data-date="01/03/2021">
+    <span class="entry-heading"><a href="content/experience/mtg-arena-monitor.html">MTG Arena Log Monitor</a></span>
+    <span class="entry-summary">A desktop app to monitor and parse Magic: The Gathering Arena log files in real time.</span>
+    <div class="entry-meta">
+        <span class="entry-date">01/03/2021</span>
+        
+        <div class="complexity-bar" title="Complexity: 5/10">
+            <div class="complexity-fill" style="width: 50%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-short">short</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Python</span>
+        
+        <span class="tag">Tkinter</span>
+        
+        <span class="tag">Log Parsing</span>
+        
+        <span class="tag">Desktop App</span>
+        
+        <span class="tag">Gaming</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="4" data-duration="short" data-tags="Adobe Premiere Pro,ExtendScript,CSV,Video Editing,Automation" data-date="10/05/2021">
+    <span class="entry-heading"><a href="content/experience/premiere-csv-markers.html">Premiere CSV Marker Importer</a></span>
+    <span class="entry-summary">A tool to import CSV files as markers into Adobe Premiere Pro with customizable colors.</span>
+    <div class="entry-meta">
+        <span class="entry-date">10/05/2021</span>
+        
+        <div class="complexity-bar" title="Complexity: 4/10">
+            <div class="complexity-fill" style="width: 40%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-short">short</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Adobe Premiere Pro</span>
+        
+        <span class="tag">ExtendScript</span>
+        
+        <span class="tag">CSV</span>
+        
+        <span class="tag">Video Editing</span>
+        
+        <span class="tag">Automation</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="4" data-duration="short" data-tags="Python,DeepL API,EXIF,IPTC,Automation" data-date="05/05/2021">
+    <span class="entry-heading"><a href="content/experience/image-metadata-translator.html">Image Metadata Translator</a></span>
+    <span class="entry-summary">A Python script to translate image EXIF/IPTC metadata using DeepL API.</span>
+    <div class="entry-meta">
+        <span class="entry-date">05/05/2021</span>
+        
+        <div class="complexity-bar" title="Complexity: 4/10">
+            <div class="complexity-fill" style="width: 40%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-short">short</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Python</span>
+        
+        <span class="tag">DeepL API</span>
+        
+        <span class="tag">EXIF</span>
+        
+        <span class="tag">IPTC</span>
+        
+        <span class="tag">Automation</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="5" data-duration="short" data-tags="Python,Web Speech API,JavaScript,Accessibility,Automation" data-date="11/11/2022">
+    <span class="entry-heading"><a href="content/experience/anydictate.html">AnyDictate</a></span>
+    <span class="entry-summary">A real-time speech-to-text web application using Web Speech API and Python.</span>
+    <div class="entry-meta">
+        <span class="entry-date">11/11/2022</span>
+        
+        <div class="complexity-bar" title="Complexity: 5/10">
+            <div class="complexity-fill" style="width: 50%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-short">short</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Python</span>
+        
+        <span class="tag">Web Speech API</span>
+        
+        <span class="tag">JavaScript</span>
+        
+        <span class="tag">Accessibility</span>
+        
+        <span class="tag">Automation</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="6" data-duration="long" data-tags="Python,PHP,SQL,Bash,Material UI,NASA" data-date="07/10/2022">
+    <span class="entry-heading"><a href="content/experience/astrophysics-website.html">Astrophysics Data Platform</a></span>
+    <span class="entry-summary">Enhanced an academic website for astrophysicists with automated data transfer and modern UI.</span>
+    <div class="entry-meta">
+        <span class="entry-date">07/10/2022</span>
+        
+        <div class="complexity-bar" title="Complexity: 6/10">
+            <div class="complexity-fill" style="width: 60%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-long">long</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Python</span>
+        
+        <span class="tag">PHP</span>
+        
+        <span class="tag">SQL</span>
+        
+        <span class="tag">Bash</span>
+        
+        <span class="tag">Material UI</span>
+        
+        <span class="tag">NASA</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="8" data-duration="long" data-tags="Python,Flask,MATLAB,Rhino,Grasshopper,Networking" data-date="22/02/2022">
+    <span class="entry-heading"><a href="content/experience/rhino-matlab-bridge.html">Rhino-MATLAB Bridge</a></span>
+    <span class="entry-summary">Bridging Rhino with Grasshopper and MATLAB for academic research using Python.</span>
+    <div class="entry-meta">
+        <span class="entry-date">22/02/2022</span>
+        
+        <div class="complexity-bar" title="Complexity: 8/10">
+            <div class="complexity-fill" style="width: 80%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-long">long</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Python</span>
+        
+        <span class="tag">Flask</span>
+        
+        <span class="tag">MATLAB</span>
+        
+        <span class="tag">Rhino</span>
+        
+        <span class="tag">Grasshopper</span>
+        
+        <span class="tag">Networking</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="7" data-duration="long" data-tags="Raspberry Pi,Python,Flask,jQuery,RTSP,ffmpeg" data-date="05/09/2023">
+    <span class="entry-heading"><a href="content/experience/info-screen.html">Raspberry Pi Information Display</a></span>
+    <span class="entry-summary">A responsive information display system with RTSP streaming and multi-source data integration.</span>
+    <div class="entry-meta">
+        <span class="entry-date">05/09/2023</span>
+        
+        <div class="complexity-bar" title="Complexity: 7/10">
+            <div class="complexity-fill" style="width: 70%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-long">long</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Raspberry Pi</span>
+        
+        <span class="tag">Python</span>
+        
+        <span class="tag">Flask</span>
+        
+        <span class="tag">jQuery</span>
+        
+        <span class="tag">RTSP</span>
+        
+        <span class="tag">ffmpeg</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="6" data-duration="medium" data-tags="Linux,Python,D-Bus,PulseAudio,GStreamer,ModemManager" data-date="06/10/2023">
+    <span class="entry-heading"><a href="content/experience/linux-call-recorder.html">Linux Phone Call Recorder</a></span>
+    <span class="entry-summary">An automatic call recording daemon for Linux phones using ModemManager and PulseAudio.</span>
+    <div class="entry-meta">
+        <span class="entry-date">06/10/2023</span>
+        
+        <div class="complexity-bar" title="Complexity: 6/10">
+            <div class="complexity-fill" style="width: 60%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-medium">medium</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">Linux</span>
+        
+        <span class="tag">Python</span>
+        
+        <span class="tag">D-Bus</span>
+        
+        <span class="tag">PulseAudio</span>
+        
+        <span class="tag">GStreamer</span>
+        
+        <span class="tag">ModemManager</span>
+        
+    </div>
+    
+</div>
+
+<div class="entry-block" data-complexity="3" data-duration="medium" data-tags="PHP,Apache,Web Development" data-date="01/12/2015">
+    <span class="entry-heading"><a href="content/experience/yearbook-website.html">Yearbook Website</a></span>
+    <span class="entry-summary">My first ever fully function website that had a real world impact.</span>
+    <div class="entry-meta">
+        <span class="entry-date">01/12/2015</span>
+        
+        <div class="complexity-bar" title="Complexity: 3/10">
+            <div class="complexity-fill" style="width: 30%"></div>
+        </div>
+        
+        
+        <span class="duration-badge duration-medium">medium</span>
+        
+    </div>
+    
+    <div class="entry-tags">
+        
+        <span class="tag">PHP</span>
+        
+        <span class="tag">Apache</span>
+        
+        <span class="tag">Web Development</span>
+        
+    </div>
+    
+</div>
+
+</div>
+
+<script>
+let currentTagFilter = 'all';
+
+function setTagFilter(tag) {
+    currentTagFilter = tag;
+    document.querySelectorAll('.tag-filter').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tag === tag);
+    });
+    filterAndSort();
+}
+
+function getDurationValue(duration) {
+    const values = { 'short': 1, 'medium': 2, 'long': 3 };
+    return values[duration] || 0;
+}
+
+function parseDate(dateStr) {
+    const parts = dateStr.split('/');
+    return new Date(parts[2], parts[1] - 1, parts[0]);
+}
+
+function filterAndSort() {
+    const container = document.getElementById('entries-container');
+    const entries = Array.from(container.querySelectorAll('.entry-block'));
+    const sortValue = document.getElementById('sort-select').value;
+    
+    // Filter
+    entries.forEach(entry => {
+        const tags = entry.dataset.tags.split(',');
+        const visible = currentTagFilter === 'all' || tags.includes(currentTagFilter);
+        entry.style.display = visible ? '' : 'none';
+    });
+    
+    // Sort
+    const visibleEntries = entries.filter(e => e.style.display !== 'none');
+    
+    visibleEntries.sort((a, b) => {
+        switch (sortValue) {
+            case 'date-desc':
+                return parseDate(b.dataset.date) - parseDate(a.dataset.date);
+            case 'date-asc':
+                return parseDate(a.dataset.date) - parseDate(b.dataset.date);
+            case 'complexity-desc':
+                return parseInt(b.dataset.complexity) - parseInt(a.dataset.complexity);
+            case 'complexity-asc':
+                return parseInt(a.dataset.complexity) - parseInt(b.dataset.complexity);
+            case 'duration-desc':
+                return getDurationValue(b.dataset.duration) - getDurationValue(a.dataset.duration);
+            case 'duration-asc':
+                return getDurationValue(a.dataset.duration) - getDurationValue(b.dataset.duration);
+            default:
+                return 0;
+        }
+    });
+    
+    // Re-append in sorted order
+    visibleEntries.forEach(entry => container.appendChild(entry));
+}
+
+// Apply default sort on page load
+document.addEventListener('DOMContentLoaded', filterAndSort);
+
+// Tag filter collapse functionality
+function toggleTagFilters() {
+    const tagFilters = document.getElementById('tag-filters');
+    const header = document.querySelector('.tag-filter-header');
+    tagFilters.classList.toggle('collapsed');
+    header.classList.toggle('collapsed');
+}
+</script>
+
+<button class="ai-summary-toggle" onclick="toggleAISummary()">AI Summary</button>
+<button class="human-summary-toggle" onclick="toggleHumanSummary()">Human Summary</button>
+
+<div class="ai-summary" id="ai-summary">
+    <button class="ai-summary-close" onclick="toggleAISummary()">×</button>
+    <h3>AI Summary</h3>
+    <div class="ai-summary-content" id="ai-summary-content"></div>
+</div>
+
+<div class="ai-summary" id="human-summary">
+    <button class="ai-summary-close" onclick="toggleHumanSummary()">×</button>
+    <h3>Human Summary</h3>
+    <div class="ai-summary-content" id="human-summary-content"></div>
+</div>
+
+<script>
+const aiSummaryText = `<p>
+    This developer demonstrates remarkable versatility across the full spectrum of software development, from low-level systems programming with D-Bus and PulseAudio on Linux phones to high-level web and mobile applications using modern frameworks like Flutter, React, and Node.js. Their work spans diverse domains including computer vision, machine learning, automation, and cross-platform development, with notable achievements such as <strong class="highlight">ranking first in a course-wide machine learning competition</strong> and <strong class="highlight">being acknowledged in a published academic paper</strong>. Client testimonials consistently praise their problem-solving abilities, communication skills, and commitment to delivering quality work on time.
+</p>
+<p>
+    Key strengths include <strong class="highlight">rapid adaptation to new technologies</strong> (evidenced by successfully bridging unfamiliar tools like Rhino, Grasshopper, and MATLAB), <strong class="highlight">building scalable systems under real constraints</strong> (processing 20,000 emails weekly with 100% reliability), and <strong class="highlight">creating practical solutions that bridge the gap between research and production</strong>. Their progression from a high school yearbook website to sophisticated deep learning systems for industrial safety applications shows a consistent trajectory of growth, technical depth, and the ability to <strong class="highlight">deliver impactful results</strong> across both freelance and academic contexts.
+</p>`;
+
+const humanSummaryText = `<p><img src="/static/media/aintmuch.png" alt="It's not much, but it's an honest work" style="max-width: 100%; border: none;" /></p>`;
+
+let typewriterTimeout = null;
+
+function typeWriter(element, html, speed = 5) {
+    // Parse HTML and extract text with tags
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+    
+    // Get all nodes (text and elements)
+    const nodes = [];
+    function extractNodes(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const chars = node.textContent.split('');
+            chars.forEach(char => nodes.push({ type: 'text', char }));
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            nodes.push({ type: 'openTag', tag: node.tagName.toLowerCase(), className: node.className });
+            node.childNodes.forEach(extractNodes);
+            nodes.push({ type: 'closeTag', tag: node.tagName.toLowerCase() });
+        }
+    }
+    tempDiv.childNodes.forEach(extractNodes);
+    
+    let i = 0;
+    let currentHtml = '';
+    let openTags = [];
+    
+    function type() {
+        if (i < nodes.length) {
+            const node = nodes[i];
+            
+            if (node.type === 'text') {
+                currentHtml += node.char;
+            } else if (node.type === 'openTag') {
+                const classAttr = node.className ? ` class="${node.className}"` : '';
+                currentHtml += `<${node.tag}${classAttr}>`;
+                openTags.push(node.tag);
+            } else if (node.type === 'closeTag') {
+                currentHtml += `</${node.tag}>`;
+                openTags.pop();
+            }
+            
+            element.innerHTML = currentHtml;
+            i++;
+            typewriterTimeout = setTimeout(type, speed);
+        }
+    }
+    
+    type();
+}
+
+function toggleAISummary() {
+    const summary = document.getElementById('ai-summary');
+    const toggle = document.querySelector('.ai-summary-toggle');
+    const content = document.getElementById('ai-summary-content');
+    
+    if (summary.classList.contains('open')) {
+        // Close
+        if (typewriterTimeout) {
+            clearTimeout(typewriterTimeout);
+            typewriterTimeout = null;
+        }
+        summary.classList.remove('open');
+        toggle.classList.remove('hidden');
+        content.innerHTML = '';
+    } else {
+        // Open
+        summary.classList.add('open');
+        toggle.classList.add('hidden');
+        typeWriter(content, aiSummaryText, 0.5);
+    }
+}
+
+function toggleHumanSummary() {
+    const summary = document.getElementById('human-summary');
+    const toggle = document.querySelector('.human-summary-toggle');
+    const content = document.getElementById('human-summary-content');
+    
+    if (summary.classList.contains('open')) {
+        // Close
+        if (typewriterTimeout) {
+            clearTimeout(typewriterTimeout);
+            typewriterTimeout = null;
+        }
+        summary.classList.remove('open');
+        toggle.classList.remove('hidden');
+        content.innerHTML = '';
+    } else {
+        // Open - show image directly without typewriter
+        summary.classList.add('open');
+        toggle.classList.add('hidden');
+        content.innerHTML = humanSummaryText;
+    }
+}
+</script></div>
+        </div>
+
+        <!-- Image Lightbox -->
+        <div class="image-lightbox" id="lightbox">
+            <img src="" alt="Enlarged image" />
+        </div>
+
+        <script>
+            // Image lightbox functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = lightbox.querySelector('img');
+                
+                // Get all images in articles
+                const images = document.querySelectorAll('article img, .side-media-img, .paired-img');
+                
+                images.forEach(img => {
+                    img.addEventListener('click', function() {
+                        lightboxImg.src = this.src;
+                        lightbox.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+                });
+                
+                // Close lightbox on click
+                lightbox.addEventListener('click', function() {
+                    this.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+                
+                // Close on Escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                        lightbox.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
