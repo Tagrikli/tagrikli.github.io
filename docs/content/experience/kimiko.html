@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Malvolio</title>
         <link rel="stylesheet" href="/static/css/base.css" />
 
         <!-- KaTeX for LaTeX math rendering -->
@@ -46,55 +46,91 @@
         </nav>
         <div class="page">
             <div class="content"><article>
-    <h1>Yearbook Website</h1>
-    <h4>01/12/2025</h4>
-    <div class="side-media side-left">
-        <img src="/static/media/yal.png" class="side-media-img" />
+    <h1>Kimiko – Browser Extension Chat Platform</h1>
+    <h4>15/12/2021</h4>
+
+    <div class="side-media side-right">
+        <img src="/static/media/kimiko-demo.png" class="side-media-img" />
 
         <div class="text">
             <p>
-                I was in my last year in one of the public high schools in Istanbul,
-                <a href="https://yesilkoyanadolu.meb.k12.tr/">Yesilkoy Anadolu Lisesi</a>, where some of my sweetest
-                memories were formed. <br />
-            </p>
-            <p>
-                Even though we had internet <sub>haha</sub>, we were still writing our yearbook entries using a text
-                editor and passing them to the teacher with USB sticks. <br />
-                I wasn't aware of any website that eased this process, and even though I should have been studying for
-                my university exam, I thought this would be a good project, and I thought I could manage them both.
+                Kimiko was a course project for CS308 at Sabanci University – a Chrome extension that brings real-time
+                chat to any website. The idea was simple: people visiting the same URL could communicate with each other
+                through a sidebar overlay, creating impromptu communities around shared web content.
+                <br />
             </p>
         </div>
     </div>
 
+    <h3>The Concept</h3>
+
     <p>
-        So in a week or so, I set up Apache on a Windows machine that resided in my home, configured the router to
-        forward the required port, got a free dynamic DNS domain, and wrote several PHP pages to make it work.<br />
+        The extension injects an iframe sidebar into any page the user visits. Each URL becomes a chat room, identified
+        by a hashed version of the address. Users can toggle the sidebar with a double-Shift hotkey, resize it to their
+        preference, and start chatting with others on the same page.
     </p>
 
-    <h3>The Workflow</h3>
+    <p>
+        User profiles persist across sessions, storing avatars, usernames, bios, and social links. Clicking on a user
+        in the chat reveals their profile, enabling a basic social layer on top of the anonymous chat experience.
+    </p>
 
-    There was no registration. I don't remember how I got all of the students' names, but I just hard-coded everyone's
-    name in a big select tag. Then I somehow generated unique passwords for each student and distributed them
-    physically.<br />
-    So what they needed to do was only:
-    <ul>
-        <li>Enter the website.</li>
-        <li>Pick themselves and the person they wanted to write to.</li>
-        <li>Write their yearbook entry and press the Send/Update button.</li>
-    </ul>
+    <h3>The Architecture</h3>
 
-    Their entries were sent to the computer and stored in a directory.
+    <p>
+        <strong>Chrome Extension:</strong> A content script injects the sidebar iframe and handles cross-origin
+        communication between the page and the embedded React app. Chrome storage persists user identity and
+        preferences locally.
+    </p>
+
+    <p>
+        <strong>React Frontend:</strong> The sidebar UI was built with React and TypeScript, handling message display,
+        user input, profile management, and real-time updates. CSS transitions provided smooth animations for settings
+        and profile panels.
+    </p>
+
+    <p>
+        <strong>Node.js Backend:</strong> An Express server with WebSocket support managed real-time message routing.
+        MongoDB stored user profiles and message history per URL hash, enabling conversation persistence.
+    </p>
+
+    <h3>Challenges Faced</h3>
+
+    <p>
+        <strong>Cross-Origin Communication:</strong> The extension's content script and the iframe run in different
+        contexts with different origins. Coordinating user identity and profile updates required careful use of
+        postMessage and Chrome's runtime messaging API.
+    </p>
+
+    <p>
+        <strong>URL-Based Room Partitioning:</strong> Messages needed to be isolated per URL while maintaining
+        performance. Using murmurhash to generate room identifiers from URLs allowed efficient database queries and
+        quick client-side routing.
+    </p>
+
+    <p>
+        <strong>Real-Time Synchronization:</strong> Managing WebSocket connections, handling disconnections gracefully,
+        and ensuring message delivery order required a robust client manager that tracked online users per room.
+    </p>
+
+    <h3>What I Learned</h3>
+
+    <p>
+        This was my first deep dive into browser extension development, and it taught me the intricacies of Chrome's
+        extension APIs, content security policies, and the security considerations of injecting code into arbitrary
+        web pages.
+    </p>
+
+    <p>
+        The project also reinforced lessons about real-time systems – managing WebSocket state, handling edge cases in
+        connection drops, and designing for the asynchronous nature of distributed chat systems.
+    </p>
 
     <hr />
 
-    I had a few maintenance issues. Whenever something happened to the computer, I needed to be there to fix it in order
-    to keep the website alive. It was a 24/7 service after all. <br />
-    And whenever a new person needed to be added, or someone lost their password, I was there to modify the site and
-    update their passwords.<br />
-    So overall, it took some effort and time, but it was a nice thing to have, and I felt useful.<br /><br />
-
-    I wish I had a screenshot, but the only proof that the site existed is this archive...
-    <a href="https://web.archive.org/web/20151212123104/http://yalyillik.wha.la/">yalyillik.wha.la</a>
+    <p>
+        A team project developed with classmates for the CS308 Software Engineering course at Sabanci University.
+    </p>
 </article>
 </div>
         </div>

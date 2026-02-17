@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Malvolio</title>
         <link rel="stylesheet" href="/static/css/base.css" />
 
         <!-- KaTeX for LaTeX math rendering -->
@@ -45,51 +45,42 @@
             <h3><a href="/music.html">Music</a></h3>
         </nav>
         <div class="page">
-            <div class="content"><h1>Welcome to my website.</h1>
-
-<p>
-    They call me Tuğrul.
-    <sub><i>means a myhtical bird of prey</i></sub>
-    <br /><audio controls src="static/media/tugrul.mp3" style="vertical-align: middle"></audio><br />
-</p>
-
-<p>
-    I'm a computer engineering and science graduate.<br />
-    I've found myself interested in cognition (its existence, and realizability through computation) and flying things.
-</p>
-
-<div style="display: flex; justify-content: center; flex-wrap: wrap; align-items: center; gap: 1rem;">
-    <a href="mailto:tagrikli@proton.me">Email</a>
-    <span>•</span>
-    <a href="https://github.com/Tagrikli">GitHub</a>
-    <span>•</span>
-    <a href="https://open.spotify.com/user/tagrikli">Spotify</a>
-    <span>•</span>
-    <a href="https://letterboxd.com/tagrikli/">Letterboxd</a>
-</div>
-
-<div class="video-card">
-    <h3>I'm inviting you to enjoy this masterpiece</h3>
-    <div class="video-container">
-        <iframe
-            src="https://www.youtube.com/embed/pLjHU7zj1aQ?si=uOn4ZA6mRyeYfTHs"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-        ></iframe>
+            <div class="content"><article>
+    <h1>Premiere CSV Marker Importer</h1>
+    <h4>10/05/2021</h4>
+    <div class="text">
+        <p>
+            A client needed a tool to import CSV files as markers into Adobe Premiere Pro. The project required handling
+            multiple CSV files with customizable settings for marker limits and color coding. <br />
+        </p>
     </div>
+
+    <h3>Requirements</h3>
+
+    <p>The project had specific requirements:</p>
+
+    <ul>
+        <li>Import multiple CSV files as markers into Adobe Premiere Pro</li>
+        <li>Setting to limit the number of markers imported</li>
+        <li>Ability to assign different colors for markers from different CSV files</li>
+    </ul>
+
+    <h3>Solution</h3>
+
+    <p>
+        I developed a solution that extended an existing open-source project, customizing it to meet the client's
+        specific workflow needs. The tool allowed video editors to efficiently import timestamped markers from external
+        sources, streamlining their post-production process.
+    </p>
+
+    <hr />
+
+    <blockquote class="testimonial">
+        <p>Goes an extra mile to offer the optimal solution for clients!</p>
+        <footer>— Upwork Client <span class="rating">★★★★★</span></footer>
+    </blockquote>
+</article>
 </div>
-
-<script>
-    function calculateAge(birthYear) {
-        const currentYear = new Date().getFullYear();
-        return currentYear - birthYear;
-    }
-
-    document.getElementById("age").textContent = calculateAge(1998);
-</script></div>
         </div>
 
         <!-- Image Lightbox -->

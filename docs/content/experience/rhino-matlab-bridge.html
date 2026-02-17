@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Malvolio</title>
         <link rel="stylesheet" href="/static/css/base.css" />
 
         <!-- KaTeX for LaTeX math rendering -->
@@ -46,66 +46,66 @@
         </nav>
         <div class="page">
             <div class="content"><article>
-    <h1>Astrophysics Data Platform</h1>
-    <h4>07/10/2022</h4>
+    <h1>Rhino-MATLAB Bridge</h1>
+    <h4>22/02/2022</h4>
     <div class="side-media side-left">
-        <img src="/static/media/astro-data-display.png" class="side-media-img" />
+        <img src="/static/media/rhino.png" class="side-media-img" />
 
         <div class="text">
             <p>
-                The goal of this project was to enhance an existing academic website developed for astrophysicist
-                teachers at my university. The website consisted of two servers, with one server responsible for
-                gathering measurements from NASA and performing calculations to detect cosmic events, while the other
-                server displayed the results and facilitated data queries. <br />
+                The project presented a significant challenge as it required bridging the gap between disparate software
+                systems—specifically, Rhino with Grasshopper and MATLAB—for an academic research initiative led by an
+                esteemed architecture professor at Istanbul Technical University. <br />
             </p>
         </div>
     </div>
 
     <p>
-        However, there were several challenges that needed to be addressed to improve the efficiency and usability of
-        the system. <br />
+        The main challenge was to seamlessly integrate these distinct platforms to facilitate the research process. <br />
     </p>
 
-    <h3>The Challenges</h3>
+    <h3>The Challenge</h3>
 
     <p>
-        The existing system required manual data transfers between servers, which was time-consuming and prone to human
-        error. The user interface was outdated, making it difficult for professors to efficiently search and analyze
-        data. Additionally, there was no proper database integration for managing the calculated results.
+        To address this challenge effectively, I embarked on a comprehensive research journey to familiarize myself with
+        Rhino, Grasshopper, and MATLAB, even though I had no prior experience with these tools. After gaining a
+        foundational understanding of these technologies, I devised an innovative solution using Python as the central
+        bridge.
     </p>
 
     <h3>The Solution</h3>
 
     <p>
-        <strong>Automated Data Transfer:</strong> I developed a solution that automated the data transfer process using
-        Python and FTP. This eliminated the need for manual transfers between servers, saving time and reducing the
-        risk of human error.
+        <strong>Flask Application:</strong> I developed a Flask application to serve as the intermediary between Rhino
+        with Grasshopper and MATLAB. This application was configured to communicate with a specific Grasshopper
+        component designed for network data exchange.
     </p>
 
-    <div class="side-media side-right">
-        <img src="/static/media/astro-search.png" class="side-media-img" />
-
-        <div class="text">
-            <p>
-                <strong>Modern UI:</strong> I revamped the website's user interface by replacing the outdated UI with a
-                modern Material UI framework. This upgrade enhanced the overall user experience and enabled the
-                implementation of advanced search and display functionalities. <br />
-            </p>
-        </div>
-    </div>
+    <p>
+        <strong>Python Integration:</strong> Leveraging Python's versatility, I utilized a Python module to interact
+        programmatically with MATLAB. This allowed for the seamless transmission of input data to MATLAB and the
+        retrieval of relevant results.
+    </p>
 
     <p>
-        <strong>Database Integration:</strong> To facilitate data management, I integrated a database into the website.
-        This allowed for seamless storage, retrieval, and presentation of the calculated data, improving the overall
-        efficiency and accessibility of the system.
+        <strong>Networking:</strong> I established a robust networking framework to enable the smooth transfer of data
+        between the different software environments. This network connectivity formed the backbone of the entire
+        solution, ensuring data exchange and synchronization between Rhino with Grasshopper and MATLAB.
     </p>
 
     <hr />
 
     <p>
-        Throughout the project, I utilized various technologies, including Bash, Python, SQL, and PHP, to develop and
-        implement the solutions. These tools were instrumental in achieving the project's goals and delivering a more
-        efficient and user-friendly website for astrophysicist teachers.
+        By meticulously implementing this comprehensive solution, I successfully bridged the gap between Rhino with
+        Grasshopper and MATLAB, facilitating the academic research project's objectives. This innovative approach
+        streamlined the research process, enabling efficient data exchange and computation between the two distinct
+        platforms.
+    </p>
+
+    <p>
+        The professor mentioned that I would be thanked in the acknowledgements section of the resulting article—and
+        they followed through. I'm literally in the acknowledgements part of
+        <a href="https://www.tandfonline.com/doi/full/10.1080/00038628.2023.2269549#:~:text=Tu%C4%9Frul%20Agrikli">the published paper</a>.
     </p>
 </article>
 </div>

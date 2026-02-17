@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Malvolio</title>
         <link rel="stylesheet" href="/static/css/base.css" />
 
         <!-- KaTeX for LaTeX math rendering -->
@@ -46,48 +46,45 @@
         </nav>
         <div class="page">
             <div class="content"><article>
-    <h1>MTG Arena Log Monitor</h1>
-    <h4>01/03/2021</h4>
+    <h1>Email PDF Extraction Automation</h1>
+    <h4>09/05/2020</h4>
     <div class="text">
         <p>
-            A client needed a desktop application to monitor the log file of Magic: The Gathering Arena and selectively
-            display game actions in real time. The project required parsing undocumented but human-readable logs to
-            extract meaningful game events. <br />
+            A client was receiving 20,000 emails per week, each with a password-protected ZIP file containing a PDF.
+            The password for each ZIP file arrived in a separate email. They needed a robust automation solution to
+            extract all PDFs without missing any. <br />
         </p>
     </div>
 
+    <h3>The Challenge</h3>
+
+    <p>
+        This was the first project where I needed to seriously consider data volume and scalability. Processing 20,000
+        emails weekly required careful attention to performance, error handling, and ensuring no PDFs were missed.
+    </p>
+
     <h3>Requirements</h3>
 
-    <p>The project had specific requirements:</p>
-
     <ul>
-        <li>Build a desktop app using Python with Kivy or Tkinter</li>
-        <li>Monitor game log file in real time</li>
-        <li>Parse and display relevant game events:</li>
-        <ul>
-            <li>Match Start</li>
-            <li>DeckList for the match</li>
-            <li>Cards drawn by player</li>
-            <li>Cards played by player</li>
-            <li>Cards played by opponent</li>
-            <li>Match End and Match Result</li>
-        </ul>
+        <li>Process ~20,000 emails per week automatically</li>
+        <li>Match password emails with their corresponding ZIP file emails</li>
+        <li>Extract PDFs from password-protected ZIP attachments</li>
+        <li>Organize extracted files locally on a Remote Desktop</li>
+        <li>Ensure 100% extraction rate—no PDFs could be missed</li>
     </ul>
 
     <h3>Solution</h3>
 
     <p>
-        I developed a Python desktop application that continuously monitored the game's log file, parsing entries to
-        identify and display relevant game events in real time. Working with undocumented log formats required careful
-        analysis and pattern recognition to accurately extract the required information.
+        I built a Python automation system that parsed Gmail content, matched password emails with their corresponding
+        ZIP files, extracted the protected attachments, and organized the data locally. The solution emphasized
+        robustness and secure automation workflows to handle the high volume reliably.
     </p>
 
-    <hr />
-
-    <blockquote class="testimonial">
-        <p>Exceptionally focused and dedicated freelancer. Hope to work in future projects.</p>
-        <footer>— Upwork Client <span class="rating">★★★★★</span></footer>
-    </blockquote>
+    <p>
+        This project taught me valuable lessons about building scalable systems and the importance of comprehensive
+        error handling when dealing with large-scale data processing.
+    </p>
 </article>
 </div>
         </div>

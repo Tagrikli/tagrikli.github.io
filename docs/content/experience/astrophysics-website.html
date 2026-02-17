@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Malvolio</title>
         <link rel="stylesheet" href="/static/css/base.css" />
 
         <!-- KaTeX for LaTeX math rendering -->
@@ -46,50 +46,67 @@
         </nav>
         <div class="page">
             <div class="content"><article>
-    <h1>Image Metadata Translator</h1>
-    <h4>05/05/2021</h4>
-    <div class="text">
-        <p>
-            A client needed a script that could process a folder of images, read their metadata (title, description,
-            keywords), translate the metadata using the DeepL API, and write the translated data back to the images.
-            <br />
-        </p>
+    <h1>Astrophysics Data Platform</h1>
+    <h4>07/10/2022</h4>
+    <div class="side-media side-left">
+        <img src="/static/media/astro-data-display.png" class="side-media-img" />
+
+        <div class="text">
+            <p>
+                The goal of this project was to enhance an existing academic website developed for astrophysicist
+                teachers at my university. The website consisted of two servers, with one server responsible for
+                gathering measurements from NASA and performing calculations to detect cosmic events, while the other
+                server displayed the results and facilitated data queries. <br />
+            </p>
+        </div>
     </div>
 
-    <h3>Requirements</h3>
-
-    <p>The project had specific requirements:</p>
-
-    <ul>
-        <li>Allow the user to specify a folder of images, source language, and target language</li>
-        <li>Translate EXIF/IPTC metadata fields: Headline, Description, Keywords</li>
-        <li>Write the new metadata back to the files without modifying filenames</li>
-        <li>Integrate with the DeepL API for translation</li>
-    </ul>
-
-    <h3>Solution</h3>
-
     <p>
-        I wrote a Python script that integrated with the DeepL API to automate this manual process. The code was
-        designed to be straightforward and well-documented, making it easy for the client to run on their Mac via
-        Terminal.
+        However, there were several challenges that needed to be addressed to improve the efficiency and usability of
+        the system. <br />
     </p>
 
+    <h3>The Challenges</h3>
+
     <p>
-        The script handled all the specified metadata fields and included proper error handling for edge cases that
-        emerged during development.
+        The existing system required manual data transfers between servers, which was time-consuming and prone to human
+        error. The user interface was outdated, making it difficult for professors to efficiently search and analyze
+        data. Additionally, there was no proper database integration for managing the calculated results.
+    </p>
+
+    <h3>The Solution</h3>
+
+    <p>
+        <strong>Automated Data Transfer:</strong> I developed a solution that automated the data transfer process using
+        Python and FTP. This eliminated the need for manual transfers between servers, saving time and reducing the
+        risk of human error.
+    </p>
+
+    <div class="side-media side-right">
+        <img src="/static/media/astro-search.png" class="side-media-img" />
+
+        <div class="text">
+            <p>
+                <strong>Modern UI:</strong> I revamped the website's user interface by replacing the outdated UI with a
+                modern Material UI framework. This upgrade enhanced the overall user experience and enabled the
+                implementation of advanced search and display functionalities. <br />
+            </p>
+        </div>
+    </div>
+
+    <p>
+        <strong>Database Integration:</strong> To facilitate data management, I integrated a database into the website.
+        This allowed for seamless storage, retrieval, and presentation of the calculated data, improving the overall
+        efficiency and accessibility of the system.
     </p>
 
     <hr />
 
-    <blockquote class="testimonial">
-        <p>
-            Tuğrul wrote a script in Python that integrated with a third party API to automate a manual process. His
-            code was straightforward and well-documented. He went out of his way to resolve some unexpected issues and
-            always delivered on time. I would be happy to work with Tuğrul again.
-        </p>
-        <footer>— Upwork Client <span class="rating">★★★★★</span></footer>
-    </blockquote>
+    <p>
+        Throughout the project, I utilized various technologies, including Bash, Python, SQL, and PHP, to develop and
+        implement the solutions. These tools were instrumental in achieving the project's goals and delivering a more
+        efficient and user-friendly website for astrophysicist teachers.
+    </p>
 </article>
 </div>
         </div>

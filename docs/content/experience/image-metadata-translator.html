@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Malvolio</title>
         <link rel="stylesheet" href="/static/css/base.css" />
 
         <!-- KaTeX for LaTeX math rendering -->
@@ -46,45 +46,50 @@
         </nav>
         <div class="page">
             <div class="content"><article>
-    <h1>Email PDF Extraction Automation</h1>
-    <h4>09/05/2020</h4>
+    <h1>Image Metadata Translator</h1>
+    <h4>05/05/2021</h4>
     <div class="text">
         <p>
-            A client was receiving 20,000 emails per week, each with a password-protected ZIP file containing a PDF.
-            The password for each ZIP file arrived in a separate email. They needed a robust automation solution to
-            extract all PDFs without missing any. <br />
+            A client needed a script that could process a folder of images, read their metadata (title, description,
+            keywords), translate the metadata using the DeepL API, and write the translated data back to the images.
+            <br />
         </p>
     </div>
 
-    <h3>The Challenge</h3>
-
-    <p>
-        This was the first project where I needed to seriously consider data volume and scalability. Processing 20,000
-        emails weekly required careful attention to performance, error handling, and ensuring no PDFs were missed.
-    </p>
-
     <h3>Requirements</h3>
 
+    <p>The project had specific requirements:</p>
+
     <ul>
-        <li>Process ~20,000 emails per week automatically</li>
-        <li>Match password emails with their corresponding ZIP file emails</li>
-        <li>Extract PDFs from password-protected ZIP attachments</li>
-        <li>Organize extracted files locally on a Remote Desktop</li>
-        <li>Ensure 100% extraction rate—no PDFs could be missed</li>
+        <li>Allow the user to specify a folder of images, source language, and target language</li>
+        <li>Translate EXIF/IPTC metadata fields: Headline, Description, Keywords</li>
+        <li>Write the new metadata back to the files without modifying filenames</li>
+        <li>Integrate with the DeepL API for translation</li>
     </ul>
 
     <h3>Solution</h3>
 
     <p>
-        I built a Python automation system that parsed Gmail content, matched password emails with their corresponding
-        ZIP files, extracted the protected attachments, and organized the data locally. The solution emphasized
-        robustness and secure automation workflows to handle the high volume reliably.
+        I wrote a Python script that integrated with the DeepL API to automate this manual process. The code was
+        designed to be straightforward and well-documented, making it easy for the client to run on their Mac via
+        Terminal.
     </p>
 
     <p>
-        This project taught me valuable lessons about building scalable systems and the importance of comprehensive
-        error handling when dealing with large-scale data processing.
+        The script handled all the specified metadata fields and included proper error handling for edge cases that
+        emerged during development.
     </p>
+
+    <hr />
+
+    <blockquote class="testimonial">
+        <p>
+            Tuğrul wrote a script in Python that integrated with a third party API to automate a manual process. His
+            code was straightforward and well-documented. He went out of his way to resolve some unexpected issues and
+            always delivered on time. I would be happy to work with Tuğrul again.
+        </p>
+        <footer>— Upwork Client <span class="rating">★★★★★</span></footer>
+    </blockquote>
 </article>
 </div>
         </div>

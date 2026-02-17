@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Malvolio</title>
         <link rel="stylesheet" href="/static/css/base.css" />
 
         <!-- KaTeX for LaTeX math rendering -->
@@ -45,47 +45,51 @@
             <h3><a href="/music.html">Music</a></h3>
         </nav>
         <div class="page">
-            <div class="content"><article>
-    <h1>AnyDictate</h1>
-    <h4>11/11/2022</h4>
-    <div class="side-media side-left">
-        <img src="/static/media/anydictate.png" class="side-media-img" />
+            <div class="content"><h1>Welcome to my website.</h1>
 
-        <div class="text">
-            <p>
-                I have developed a dynamic web application that harnesses the power of Python and the Web Speech API to
-                provide real-time speech-to-text conversion. With this innovative tool, users can effortlessly convert
-                their spoken words into written text. <br />
-            </p>
-        </div>
-    </div>
+<p>
+    They call me Tuğrul.
+    <sub><i>means a myhtical bird of prey</i></sub>
+    <br /><audio controls src="static/media/tugrul.mp3" style="vertical-align: middle"></audio><br />
+</p>
 
-    <p>
-        The application seamlessly integrates with various platforms, allowing users to input text wherever a cursor can
-        be placed. <br />
-    </p>
+<p>
+    I'm a computer engineering and science graduate.<br />
+    I've found myself interested in cognition (its existence, and realizability through computation) and flying things.
+</p>
 
-    <h3>How It Works</h3>
-
-    <p>
-        Using the Web Speech API, the application records speech input and swiftly converts it into textual format. This
-        text is then sent to the backend, powered by Python, which emulates key presses to effectively simulate typing.
-    </p>
-
-    <p>
-        This unique functionality enables users to effortlessly type anywhere, saving time and streamlining their
-        workflow. By combining the strengths of web technologies and Python, this project offers a versatile solution
-        for those who prefer speech input over traditional typing.
-    </p>
-
-    <hr />
-
-    <p>
-        The seamless integration and real-time transcription capabilities make it a valuable tool for a wide range of
-        applications, from drafting emails and documents to interacting with text-based interfaces.
-    </p>
-</article>
+<div style="display: flex; justify-content: center; flex-wrap: wrap; align-items: center; gap: 1rem;">
+    <a href="mailto:tagrikli@proton.me">Email</a>
+    <span>•</span>
+    <a href="https://github.com/Tagrikli">GitHub</a>
+    <span>•</span>
+    <a href="https://open.spotify.com/user/tagrikli">Spotify</a>
+    <span>•</span>
+    <a href="https://letterboxd.com/tagrikli/">Letterboxd</a>
 </div>
+
+<div class="video-card">
+    <h3>I'm inviting you to enjoy this masterpiece</h3>
+    <div class="video-container">
+        <iframe
+            src="https://www.youtube.com/embed/pLjHU7zj1aQ?si=uOn4ZA6mRyeYfTHs"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+        ></iframe>
+    </div>
+</div>
+
+<script>
+    function calculateAge(birthYear) {
+        const currentYear = new Date().getFullYear();
+        return currentYear - birthYear;
+    }
+
+    document.getElementById("age").textContent = calculateAge(1998);
+</script></div>
         </div>
 
         <!-- Image Lightbox -->

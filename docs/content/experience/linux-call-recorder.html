@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Malvolio</title>
         <link rel="stylesheet" href="/static/css/base.css" />
 
         <!-- KaTeX for LaTeX math rendering -->
@@ -46,66 +46,79 @@
         </nav>
         <div class="page">
             <div class="content"><article>
-    <h1>Rhino-MATLAB Bridge</h1>
-    <h4>22/02/2022</h4>
-    <div class="side-media side-left">
-        <img src="/static/media/rhino.png" class="side-media-img" />
-
-        <div class="text">
-            <p>
-                The project presented a significant challenge as it required bridging the gap between disparate software
-                systems—specifically, Rhino with Grasshopper and MATLAB—for an academic research initiative led by an
-                esteemed architecture professor at Istanbul Technical University. <br />
-            </p>
-        </div>
-    </div>
+    <h1>Linux Phone Call Recorder</h1>
+    <h4>06/10/2023</h4>
 
     <p>
-        The main challenge was to seamlessly integrate these distinct platforms to facilitate the research process. <br />
+        PCMin was a project to build an automatic call recording system for Linux phones. Running as a background
+        daemon, it monitors cellular calls through ModemManager and captures both audio channels – the microphone and
+        the speaker output – saving each side of the conversation as separate WAV files.
     </p>
 
-    <h3>The Challenge</h3>
+    <h3>The Problem</h3>
 
     <p>
-        To address this challenge effectively, I embarked on a comprehensive research journey to familiarize myself with
-        Rhino, Grasshopper, and MATLAB, even though I had no prior experience with these tools. After gaining a
-        foundational understanding of these technologies, I devised an innovative solution using Python as the central
-        bridge.
+        Linux phones like the Librem 5 or PinePhone lack the polished ecosystem of their Android and iOS counterparts.
+        Call recording, a feature many take for granted, simply didn't exist in a usable form. The goal was to fill
+        that gap with a lightweight, set-and-forget solution.
     </p>
 
     <h3>The Solution</h3>
 
     <p>
-        <strong>Flask Application:</strong> I developed a Flask application to serve as the intermediary between Rhino
-        with Grasshopper and MATLAB. This application was configured to communicate with a specific Grasshopper
-        component designed for network data exchange.
+        <strong>D-Bus Integration:</strong> The system hooks into ModemManager via D-Bus, listening for call state
+        changes. When a call transitions to active, recording begins automatically. When it terminates, files are
+        saved with timestamps, direction (incoming/outgoing), and the caller's number.
     </p>
 
     <p>
-        <strong>Python Integration:</strong> Leveraging Python's versatility, I utilized a Python module to interact
-        programmatically with MATLAB. This allowed for the seamless transmission of input data to MATLAB and the
-        retrieval of relevant results.
+        <strong>Dual Audio Capture:</strong> Using PulseAudio, the application captures from two sources simultaneously
+        – the microphone input and the speaker monitor. This separation preserves audio quality and allows for
+        post-processing if needed.
     </p>
 
     <p>
-        <strong>Networking:</strong> I established a robust networking framework to enable the smooth transfer of data
-        between the different software environments. This network connectivity formed the backbone of the entire
-        solution, ensuring data exchange and synchronization between Rhino with Grasshopper and MATLAB.
+        <strong>GStreamer Pipeline:</strong> Audio encoding is handled through GStreamer, with raw PulseAudio sources
+        piped through caps filters and WAV encoders. The pipeline runs independently for each audio channel, writing
+        to temporary files before moving them to permanent storage.
+    </p>
+
+    <h3>Challenges Faced</h3>
+
+    <p>
+        <strong>Audio Source Detection:</strong> PulseAudio sources can change between calls, especially when
+        switching between earpiece and speakerphone. The system repopulates source names before each recording to
+        ensure the correct devices are captured.
+    </p>
+
+    <p>
+        <strong>Event-Driven Architecture:</strong> The application needed to run continuously without polling,
+        responding instantly to call events. GLib's main loop combined with D-Bus signal handlers provided the
+        necessary event-driven foundation.
+    </p>
+
+    <p>
+        <strong>Resource Constraints:</strong> Linux phones have limited resources. The design avoids unnecessary
+        processing, using temporary files during recording and only performing file operations when the call ends.
+    </p>
+
+    <h3>What I Learned</h3>
+
+    <p>
+        This project deepened my understanding of the Linux audio stack – PulseAudio's source/sink model, monitor
+        devices, and the intricacies of capturing system audio. Working with D-Bus and ModemManager also provided
+        insight into how cellular functionality is exposed to userspace on Linux.
+    </p>
+
+    <p>
+        The experience highlighted the challenges of developing for niche platforms, where documentation is sparse and
+        solutions often require piecing together information from multiple sources.
     </p>
 
     <hr />
 
     <p>
-        By meticulously implementing this comprehensive solution, I successfully bridged the gap between Rhino with
-        Grasshopper and MATLAB, facilitating the academic research project's objectives. This innovative approach
-        streamlined the research process, enabling efficient data exchange and computation between the two distinct
-        platforms.
-    </p>
-
-    <p>
-        The professor mentioned that I would be thanked in the acknowledgements section of the resulting article—and
-        they followed through. I'm literally in the acknowledgements part of
-        <a href="https://www.tandfonline.com/doi/full/10.1080/00038628.2023.2269549#:~:text=Tu%C4%9Frul%20Agrikli">the published paper</a>.
+        Built for the Librem 5, but applicable to any Linux phone running ModemManager and PulseAudio.
     </p>
 </article>
 </div>

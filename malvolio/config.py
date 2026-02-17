@@ -21,11 +21,11 @@ class Config:
     
     # Directory paths
     templates_dir: Path = field(default_factory=lambda: Path("templates"))
-    public_dir: Path = field(default_factory=lambda: Path("public"))
+    public_dir: Path = field(default_factory=lambda: Path("docs"))
     source_dir: Path = field(default_factory=lambda: Path("content"))
     
     # Output files
-    index_output: Path = field(default_factory=lambda: Path("public/index.html"))
+    index_output: Path = field(default_factory=lambda: Path("docs/index.html"))
     
     # Page configurations
     pages: list[PageConfig] = field(default_factory=list)
