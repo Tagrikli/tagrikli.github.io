@@ -2,3 +2,8 @@ what-is-a-thing:
     heading: "What is a thing?"
     summary: "On constraints, meaning, and what learning algorithms might be missing."
     date: "10/01/2026"
+
+update-rules:
+    heading: "Update Rules"
+    summary: "On architectures of learning systems, and their dynamics."
+    date: "14/01/2026"

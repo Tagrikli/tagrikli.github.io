@@ -3,6 +3,7 @@
 import os
 import re
 import shutil
+from datetime import datetime
 from pathlib import Path
 
 import jinja2
@@ -94,6 +95,19 @@ class SiteBuilder:
         # Extract items as list of dicts with href
         keys = list(data.keys())
         items = list(data.values())
+
+        # Sort items by date (newest to oldest) for thought pages
+        if page.name == "thought":
+            def parse_date(date_str: str) -> datetime:
+                """Parse date string in DD/MM/YYYY format."""
+                parts = date_str.split('/')
+                return datetime(int(parts[2]), int(parts[1]), int(parts[0]))
+            
+            # Create list of (key, item) pairs, sort by date, then unpack
+            keyed_items = list(zip(keys, items))
+            keyed_items.sort(key=lambda x: parse_date(x[1].get("date", "01/01/1970")), reverse=True)
+            keys = [k for k, _ in keyed_items]
+            items = [i for _, i in keyed_items]
 
         # Collect all unique tags
         all_tags = set()
