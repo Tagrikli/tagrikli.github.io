@@ -4,7 +4,10 @@
 <div class="entry-block">
     <span class="entry-heading"><a href="{{item.href}}">{{item.heading}}</a></span>
     <span class="entry-summary">{{item.summary}}</span>
-    <span class="entry-date">{{item.date}}</span>
-    <span class="entry-reading-time">(~{{item.reading_time}} min read)</span>
+    <div class="entry-meta">
+        <span class="entry-label {% if item['careless-wonder'] %}careless-wonder{% else %}careful-argument{% endif %}">{% if item['careless-wonder'] %}Careless Wonder{% else %}Careful Argument{% endif %}</span>
+        <span class="entry-date">{{item.date}}</span>
+        <span class="entry-reading-time">(~{{item.reading_time}} min read)</span>
+    </div>
 </div>
 {% endfor %}

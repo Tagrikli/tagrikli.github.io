@@ -208,6 +208,23 @@ sub {
     border-bottom: none;
 }
 
+.entry-label {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 3px;
+    border: 1px solid var(--overlay);
+}
+
+.entry-label.careless-wonder {
+    color: var(--love);
+    background: var(--highlight-low);
+}
+
+.entry-label.careful-argument {
+    color: var(--gold);
+    background: var(--highlight-low);
+}
+
 .entry-heading {
     font-weight: 500;
     color: var(--text);
