@@ -235,6 +235,12 @@ sub {
     color: var(--muted);
 }
 
+.entry-reading-time {
+    font-size: 0.75rem;
+    color: var(--pine);
+    margin-left: 8px;
+}
+
 /* Entry meta row */
 .entry-meta {
     display: flex;

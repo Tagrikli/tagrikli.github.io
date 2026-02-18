@@ -1,6 +1,7 @@
 """Core build logic for Malvolio static site generator."""
 
 import os
+import re
 import shutil
 from pathlib import Path
 
@@ -103,6 +104,18 @@ class SiteBuilder:
 
         for item, key in zip(items, keys):
             item["href"] = f"{page.content_dir}/{key}.html"
+            # Calculate reading time from content file
+            source_file = page.source_dir / f"{key}.html"
+            if source_file.exists():
+                with open(source_file, "r", encoding="utf-8") as f:
+                    content = f.read()
+                # Strip HTML tags for word count
+                text = re.sub(r"<[^>]+>", "", content)
+                word_count = len(text.split())
+                reading_time = max(1, round(word_count / 220))
+                item["reading_time"] = reading_time
+            else:
+                item["reading_time"] = 1
 
         # Render the page content
         page_template = self.env.get_template(page.template)
